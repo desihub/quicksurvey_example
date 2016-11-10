@@ -6,7 +6,7 @@ To run `quicksurvey` you need to have the following products installed.
 * `desitarget`
 * `fiberassignment`
 
-And the execte the following scripts in two commands
+And then execute the following two scripts:
 
 ```bash
 ~/desitarget/bin/select_mock_targets -c input/mock_inputs.yaml 
