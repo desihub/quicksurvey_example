@@ -130,3 +130,5 @@ WARNING desisim.quickcat.get_observed_redshifts()
 Thu Nov 10 15:55:29 2016 Finished zcat
 
 ```
+
+The `inputs` and `outputs` directories include each a `README` files explaining their structure.
