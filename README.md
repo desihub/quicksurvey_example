@@ -2,7 +2,7 @@
 
 Clone this repository and `cd` into it
 ```
-git clone https://github.com/forero/quicksurvey_example.git
+git clone https://github.com/desihub/quicksurvey_example.git
 cd quicksurvey_example
 ```
 
