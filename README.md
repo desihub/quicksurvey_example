@@ -1,11 +1,4 @@
-# quicksurvey_example
-
-To run `quicksurvey` you need to have the following products installed.
-
-* `desisim`
-* `desitarget`
-* `fiberassignment`
-
+# Clone&Play DESI survey simulation sample
 
 Clone this repository and `cd` into it
 ```
@@ -14,18 +7,13 @@ cd quicksurvey_example
 ```
 
 
-Assuming you have `desisim`, `desitarget` and `fiberassign` in your home directory you can now run
-the following two commands
-
-And then execute the following two scripts:
-
-
+Run the simulation with the following commands
 ```bash
+module load fiberassign
+module load desisim
 ~/desitarget/bin/select_mock_targets -c input/mock_inputs.yaml 
-~/desisim/bin/quicksurvey -O output/ -T input/ -f ~/fiberassign/bin/./fiberassign -E input/ -t input/template_fiberassign.txt -N 8
+quicksurvey -O output/ -T input/ -f fiberassign -E input/ -t input/template_fiberassign.txt -N 8
 ```
-
-
 The output of the first command should look like this
 
 ```bash
