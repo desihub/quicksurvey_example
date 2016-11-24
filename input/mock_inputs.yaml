@@ -58,7 +58,7 @@ sources:
        format: lya,
        selection : ndens,
     }
-   BGS: {
+    BGS: {
        target_name: BGS,
        mag_bright: 15.0,
        mag_faintest: 20.0,
