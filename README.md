@@ -18,7 +18,7 @@ the following two commands
 
 And then execute the following two scripts:
 ```bash
-~/desitarget/bin/select_mock_targets -c input/mock_inputs.yaml 
+~/desitarget/bin/select_mock_targets -c input/mock_inputs.yaml -O input/
 ~/desisim/bin/quicksurvey -O output/ -T input/ -f ~/fiberassign/bin/./fiberassign -E input/ -t input/template_fiberassign.txt -N 8
 ```
 
