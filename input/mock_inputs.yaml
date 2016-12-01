@@ -38,6 +38,7 @@ sources:
         target_name: ELG,
         truth_name: ELG,
         root_mock_dir: /project/projectdirs/desi/mocks/GaussianRandomField/v0.0.4,
+        mock_name: ELG,
         format: gaussianfield,
         selection: ndens
     }
@@ -45,6 +46,7 @@ sources:
         target_name: LRG,
         truth_name: LRG,
         root_mock_dir: /project/projectdirs/desi/mocks/GaussianRandomField/v0.0.4,
+        mock_name: LRG,
         format: gaussianfield,
         selection: ndens
     }
@@ -54,6 +56,7 @@ sources:
        min_z : 0.0,
        max_z : 2.1,
        root_mock_dir: /project/projectdirs/desi/mocks/GaussianRandomField/v0.0.4,
+       mock_name: QSO,
        format: gaussianfield,
        selection : ndens,
     }
@@ -88,6 +91,7 @@ sources:
        mag_bright: 15.0, 
        mag_faint_filler: 19.0, 
        mag_faintest: 20.0, 
+       density: 200.0, 
        root_mock_dir: /project/projectdirs/desi/mocks/mws/small_galaxia/alpha/v0.0.2/bricks,
        format: galaxia,
        selection: mag
