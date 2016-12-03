@@ -30,6 +30,7 @@ ipython
 
 From within ipython:
 ```python
+import numpy as np
 from surveysim.surveysim import surveySim
 tilelist = np.loadtxt('tilelist.txt', dtype=int)
 surveySim((2020,1,1), (2020,6,1), tilesubset=tilelist)
