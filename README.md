@@ -12,12 +12,6 @@ module load desimodules
 That will configure everything you need to run quicksurvey except the
 input files in this repository.
 
-TODO: install latest desitarget.  In the meantime, you can disable the
-preinstalled copy to use your own version instead with
-```bash
-module unload desitarget
-```
-
 Clone this repository and `cd` into it
 ```
 git clone https://github.com/desihub/quicksurvey_example.git
@@ -45,12 +39,15 @@ This will leave a bunch of fits files in the current directory; the most
 important is `obslist_all.fits` with the order and observing conditions
 for each tile.
 
+TODO: update surveysim to have an `outputdir` option.
+
 ### mock target catalog
 
 Go back to the top level directory of this repository (`cd ..`) and
 generate a mock target catalog with
 ```bash
-select_mock_targets -c input/mock_inputs.yaml -O input/
+time select_mock_targets -c input/mock_inputs.yaml --output_dir input/ \
+  --realtargets /project/projectdirs/desi/target/catalogs/targets-dr3.1-0.8.1.fits
 ```
 That will take ~7 minutes and output several files in the `input/` directory
 (they are ouput of `select_mock_targets` but input to `quicksurvey`):
@@ -73,6 +70,9 @@ time quicksurvey --output_dir output/  \
 ```
 (if you don't have quicksurvey and fiberassign in your `$PATH`, provide
 the full path to them)
+
+This will take ~5 minutes.  See `output/README.md` for details of what
+is written there.
 
 ### Log output
 
