@@ -1,11 +1,22 @@
 # Clone&Play DESI survey simulation sample
 
-To run `quicksurvey` you need to have the following products installed.
+### code setup
 
-* `desisim`
-* `desitarget`
-* `fiberassignment`
+Quick setup at NERSC edison using pre-installed code:
 
+```bash
+module use /global/common/edison/contrib/desi/modulefiles
+module load desimodules
+```
+
+That will configure everything you need to run quicksurvey except the
+input files in this repository.
+
+TODO: install latest desitarget.  In the meantime, you can disable the
+preinstalled copy to use your own version instead with
+```bash
+module unload desitarget
+```
 
 Clone this repository and `cd` into it
 ```
@@ -13,16 +24,94 @@ git clone https://github.com/desihub/quicksurvey_example.git
 cd quicksurvey_example
 ```
 
-Assuming you have `desisim`, `desitarget` and `fiberassign` in your home directory you can now run
-the following two commands
+### surveysim
 
-And then execute the following two scripts:
+Run the observing operations simulator "surveysim" from within the
+`surveysim/` subdirectory (it will dump a lot of fits files there):
 ```bash
-~/desitarget/bin/select_mock_targets -c input/mock_inputs.yaml -O input/
-~/desisim/bin/quicksurvey -O output/ -T input/ -f ~/fiberassign/bin/./fiberassign -E input/ -t input/template_fiberassign.txt -N 8
+cd surveysim
+cat ../input/epoch*.txt > tilelist.txt
+ipython
 ```
 
-The output of the first command should look like this
+From within ipython:
+```python
+from surveysim.surveysim import surveySim
+tilelist = np.loadtxt('tilelist.txt', dtype=int)
+surveySim((2020,1,1), (2020,6,1), tilesubset=tilelist)
+```
+
+This will leave a bunch of fits files in the current directory; the most
+important is `obslist_all.fits` with the order and observing conditions
+for each tile.
+
+### mock target catalog
+
+Go back to the top level directory of this repository (`cd ..`) and
+generate a mock target catalog with
+```bash
+select_mock_targets -c input/mock_inputs.yaml -O input/
+```
+That will take ~7 minutes and output several files in the `input/` directory
+(they are ouput of `select_mock_targets` but input to `quicksurvey`):
+* `targets.fits` - a target catalog analogous to a real data target catalog
+* `truth.fits` - row-matched truth information about those targets
+* `sky.fits` and `stdstars.fits` - sky and standard star targets for fiberassign
+* `mtl.fits` - the first pass "merged target list", also for fiberassign
+
+### quicksurvey
+
+Now run the `quicksurvey` wrapper of fiberassign, quickcat, and merged
+target list generation:
+```bash
+time quicksurvey --output_dir output/  \
+  --targets_dir input/  \
+  --fiberassign_exec `which fiberassign` \
+  --template_fiberassign input/template_fiberassign.txt \
+  --obsconditions surveysim/obslist_all.fits \
+  --fiberassign_dates input/fiberassign_dates.txt
+```
+(if you don't have quicksurvey and fiberassign in your `$PATH`, provide
+the full path to them)
+
+### Log output
+
+The output of `surveysim` should look like this
+```
+2020-01-01 19:00:00
+The survey will start from scratch.
+WARNING: ErfaWarning: ERFA function "dtf2d" yielded 1 of "dubious year (Note 6)" [astropy._erfa.core]
+
+Conditions at the beginning of the night: 
+	Seeing:  0.8936879533080855 arcseconds
+	Transparency:  1.0
+	Cloud cover:  17.118102355534635 %
+On the night starting  2020-01-01 19:00:00.000 , we observed  3  tiles.
+There are  186 left to observe.
+
+Conditions at the beginning of the night: 
+	Seeing:  1.2598259444024036 arcseconds
+	Transparency:  0.8293976510609495
+	Cloud cover:  24.86994679717109 %
+On the night starting  2020-01-02 19:00:00.000 , we observed  3  tiles.
+There are  183 left to observe.
+
+Bad weather forced the dome to remain shut for the night.
+On the night starting  2020-01-03 19:00:00.000 , we observed  0  tiles.
+There are  183 left to observe.
+
+...
+
+Conditions at the beginning of the night: 
+	Seeing:  0.6912051898633905 arcseconds
+	Transparency:  0.7057028458005875
+	Cloud cover:  0.9656024269303759 %
+On the night starting  2020-04-16 19:00:00.000 , we observed  1  tiles.
+There are  0 left to observe.
+
+```
+
+The output of `selec_mock_targets` should look like this
 
 ```bash
 According to config in:    input/mock_inputs.yaml
@@ -75,7 +164,7 @@ Finished writing Truth file
 done!
 ```
 
-The output of the second command should look like this
+The output of the `quick_survey` should look like this
 
 ```bash
 Epoch 0
@@ -140,3 +229,37 @@ Thu Nov 10 15:55:29 2016 Finished zcat
 ```
 
 The `inputs` and `outputs` directories include each a `README` files explaining their structure.
+
+### Development code
+
+To run `quicksurvey` you need to have the following products installed.
+
+* `desisim`
+* `desitarget`
+* `fiberassignment`
+
+To run `surveysim` you additionally need the following
+
+* `desisurvey`
+* `surveysim`
+* `specsim`
+* `desimodel`
+* `desiutil` (?)
+
+To replace one of the pre-installed copies with your own git clone,
+
+```bash
+module unload desisim
+git clone https://github.com/desihub/desisim
+export PYTHONPATH=`pwd`/desisim/py:$PYTHONPATH
+export PATH=`pwd`/desisim/bin:$PATH
+```
+
+Some of us use personal module files to set PATH and PYTHONPATH;
+Others use configuration scripts to do the same.
+If you prefer to install all DESI code from your own checkouts, you can
+get the non-DESI python dependencies with:
+```bash
+module use /global/common/edison/contrib/desi/modulefiles
+module load desi-conda
+```
