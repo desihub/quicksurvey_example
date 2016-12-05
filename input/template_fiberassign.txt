@@ -2,8 +2,8 @@ Targfile {inputdir}/mtl.fits
 SStarsfile {targetdir}/stdstars.fits
 SkyFfile  {targetdir}/sky.fits
 Secretfile {targetdir}/truth.fits
-tileFile /project/projectdirs/desi/software/edison/desimodel/master/data/footprint/desi-tiles.fits
-fibFile /project/projectdirs/desi/software/edison/desimodel/0.3.1/data/focalplane/fiberpos.txt
+tileFile /global/common/edison/contrib/desi/code/desimodel/0.5.1/data/footprint/desi-tiles.fits
+fibFile /global/common/edison/contrib/desi/code/desimodel/0.5.1/data/focalplane/fiberpos.txt
 outDir {inputdir}/fiberassign/
 surveyFile {inputdir}/survey_list.txt
 
