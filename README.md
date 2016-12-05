@@ -74,6 +74,32 @@ the full path to them)
 This will take ~5 minutes.  See `output/README.md` for details of what
 is written there.
 
+If you want to run observing epochs with a pre-determined tile list and
+median observing conditions, you can specify the location of `epoch{n}.txt`
+files (n is 0-indexed, one tile per line in each file).
+```bash
+time quicksurvey --output_dir output/  \
+  --targets_dir input/  \
+  --fiberassign_exec `which fiberassign` \
+  --template_fiberassign input/template_fiberassign.txt \
+  --epochs_dir input/ \
+  --n_epochs 3
+```
+
+Coming soon:
+To pick up where you left off, you can use `--start_epoch` (0-indexed):
+```bash
+time quicksurvey --output_dir output/  \
+  --targets_dir input/  \
+  --fiberassign_exec `which fiberassign` \
+  --template_fiberassign input/template_fiberassign.txt \
+  --epochs_dir input/ \
+  --start_epoch 3 \
+  --n_epochs 6
+```
+Note: `--n_epochs` is the total number of epochs including the ones that
+you are skipping
+
 ### Log output
 
 The output of `surveysim` should look like this
