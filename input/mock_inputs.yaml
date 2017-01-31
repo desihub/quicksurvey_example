@@ -101,7 +101,16 @@ sources:
         truth_name: MWS_WD,
         mag_bright: 15.0, 
         mag_faint: 20.0, 
-        root_mock_dir: /project/projectdirs/desi/mocks/mws/wd100pc/v0.0.1,
-        format: wd100pc,
+        root_mock_dir: /project/projectdirs/desi/mocks/mws/wd/v0.0.2,
+        format: wd,
+        selection: mag
+    }
+    MWS_NEARBY: {
+        target_name: MWS_NEARBY,
+        truth_name: MWS_NEARBY,
+        mag_bright: 15.0, 
+        mag_faint: 20.0, 
+        root_mock_dir: /project/projectdirs/desi/mocks/mws/100pc/v0.0.3,
+        format: 100pc,
         selection: mag
     }
