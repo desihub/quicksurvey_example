@@ -7,7 +7,7 @@
 # time to run a 5-year survey with this script is about 45 minutes.
 #############################################################################
 
-export DESISURVEY='/global/cscratch1/sd/forero/quicksurvey_example/survey'
+export DESISURVEY=${SCRATCH}'/quicksurvey_example/survey'
 
 PLAN_ARGS='--verbose --nopt 0'
 SIM_ARGS='--verbose --seed 123 --strategy HA+fallback --plan plan.fits'
