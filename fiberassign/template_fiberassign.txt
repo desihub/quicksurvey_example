@@ -1,5 +1,5 @@
 Targfile {inputdir}/mtl.fits
-SStarsfile {targetdir}/stdstars.fits
+SStarsfile {targetdir}/standards-bright.fits
 SkyFfile  {targetdir}/sky.fits
 Secretfile {targetdir}/truth.fits
 tileFile /global/common/edison/contrib/desi/code/desimodel/0.5.1/data/footprint/desi-tiles.fits
