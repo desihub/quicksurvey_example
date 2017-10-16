@@ -1,15 +1,6 @@
 dust_dir: /project/projectdirs/desi/software/edison/dust/v0_1/maps
 decals_brick_info: /project/projectdirs/desi/target/catalogs/brick-info-dr3.v0.0.1.fits
 sources:
-    BGS: {
-        target_name: BGS,
-        mock_dir_name: /project/projectdirs/desi/mocks/bgs/MXXL/desi_footprint/v0.0.4/BGS.hdf5,
-        format: durham_mxxl_hdf5,
-        magcut: 20.3,
-        contam: {
-            STAR: 50,
-        }
-    }
     ELG: {
         target_name: ELG,
         mock_dir_name: /project/projectdirs/desi/mocks/GaussianRandomField/v0.0.5/ELG.fits,
@@ -17,6 +8,15 @@ sources:
         density: 2155,
         contam: {
             STAR: 240,
+        }
+    }
+    BGS: {
+        target_name: BGS,
+        mock_dir_name: /project/projectdirs/desi/mocks/bgs/MXXL/desi_footprint/v0.0.4/BGS.hdf5,
+        format: durham_mxxl_hdf5,
+        magcut: 20.3,
+        contam: {
+            STAR: 50,
         }
     }
     FAINTSTAR: {
