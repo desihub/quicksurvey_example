@@ -7,6 +7,7 @@
 # Remove the --scores option to reduce the output size to ~50M.
 #############################################################################
 export DESISURVEY=${SCRATCH}'/quicksurvey_example/survey'
+export DESISURVEY_OUTPUT=${SCRATCH}'/quicksurvey_example/survey'
 PLAN_ARGS='--verbose --fa-delay 1m'
 SIM_ARGS='--verbose --scores --seed 123 --strategy HA+fallback'
 
