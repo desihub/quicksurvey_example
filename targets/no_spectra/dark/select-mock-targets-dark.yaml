@@ -1,0 +1,39 @@
+dust_dir: /project/projectdirs/desi/software/edison/dust/v0_1/maps
+decals_brick_info: /project/projectdirs/desi/target/catalogs/brick-info-dr3.v0.0.1.fits
+sources:
+    ELG: {
+        target_name: ELG,
+        mock_dir_name: /project/projectdirs/desi/mocks/GaussianRandomField/v0.0.5/ELG.fits,
+        format: gaussianfield,
+        density: 2155,
+        contam: {
+            STAR: 240,
+        }
+    }
+    LRG: {
+        target_name: LRG,
+        mock_dir_name: /project/projectdirs/desi/mocks/GaussianRandomField/v0.0.5/LRG.fits,
+        format: gaussianfield,
+        density: 350,
+    }
+    QSO: {
+        target_name: QSO,
+        mock_dir_name: /project/projectdirs/desi/mocks/GaussianRandomField/v0.0.5/QSO.fits,
+        format: gaussianfield,
+        density: 120,
+        contam: {
+            GALAXY: 27,
+            STAR: 63,
+        },
+        LYA: {
+            mock_dir_name: /project/projectdirs/desi/mocks/lya_forest/v0.0.2/metadata-simpleSpec.fits,
+            density: 50,
+            zcut: 2.1,
+        }
+    }
+    SKY: {
+        target_name: SKY,
+        mock_dir_name: /project/projectdirs/desi/mocks/GaussianRandomField/v0.0.1/2048/random.fits,
+        format: gaussianfield,
+        density: 1400,
+    }
