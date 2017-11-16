@@ -6,9 +6,6 @@ sources:
         mock_dir_name: /project/projectdirs/desi/mocks/GaussianRandomField/v0.0.5/ELG.fits,
         format: gaussianfield,
         density: 2155,
-        contam: {
-            STAR: 240,
-        }
     }
     FAINTSTAR: {
         target_name: FAINTSTAR,
@@ -42,10 +39,6 @@ sources:
         mock_dir_name: /project/projectdirs/desi/mocks/GaussianRandomField/v0.0.5/QSO.fits,
         format: gaussianfield,
         density: 120,
-        contam: {
-            GALAXY: 27,
-            STAR: 63,
-        },
         LYA: {
             mock_dir_name: /project/projectdirs/desi/mocks/lya_forest/v0.0.2/metadata-simpleSpec.fits,
             density: 50,
