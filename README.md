@@ -9,7 +9,6 @@ cd $SCRATCH
 
 git clone git@github.com:desihub/quicksurvey_example.git
 
-
 select_mock_targets --no-spectra -c $SCRATCH/quicksurvey_example/targets/no_spectra/dark/select-mock-targets-dark.yaml --nside 16 --output_dir $SCRATCH/quicksurvey_example/targets/no_spectra/dark --seed 10 --tiles $SCRATCH/quicksurvey_example/survey/subset_tiles_dark.fits
 
 join_mock_targets --mockdir $SCRATCH/quicksurvey_example/targets/no_spectra/dark
