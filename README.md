@@ -18,7 +18,6 @@ select_mock_targets --no-spectra -c $SCRATCH/quicksurvey_example/targets/no_spec
 
 join_mock_targets --mockdir $SCRATCH/quicksurvey_example/targets/no_spectra/bright
 
-
 quicksurvey -T $SCRATCH/quicksurvey_example/targets/no_spectra/dark -E $SCRATCH/quicksurvey_example/survey/subset_exposures_dark.fits  --output_dir $SCRATCH/quicksurvey_example/zcat/dark -f $(which fiberassign) -t $SCRATCH/quicksurvey_example/fiberassign/template_fiberassign_dark.txt -D $SCRATCH/quicksurvey_example/fiberassign/subset_dark_fiberassign_dates.txt
 
 quicksurvey -T $SCRATCH/quicksurvey_example/targets/no_spectra/bright -E $SCRATCH/quicksurvey_example/survey/subset_exposures_bright.fits  --output_dir $SCRATCH/quicksurvey_example/zcat/bright -f $(which fiberassign) -t $SCRATCH/quicksurvey_example/fiberassign/template_fiberassign_bright.txt -D $SCRATCH/quicksurvey_example/fiberassign/subset_bright_fiberassign_dates.txt
