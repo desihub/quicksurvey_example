@@ -1,6 +1,8 @@
 # Clone&Play DESI survey simulation sample
 
 The following commands should be enough to simulate a small DESI patch of 100 sq. deg.
+This will run separately a `dark` and a `bright` survey.
+More details can be found in `readme.ipynb`.
 
 ```bash
 cd $SCRATCH
