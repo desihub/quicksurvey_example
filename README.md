@@ -32,7 +32,7 @@ join_mock_targets --mockdir $SCRATCH/quicksurvey_example/targets/no_spectra/brig
 # Run quicksurvey for the dark time; this includes surveysims, fiberassign, and quickcat
 quicksurvey -T $SCRATCH/quicksurvey_example/targets/no_spectra/dark \
     -E $SCRATCH/quicksurvey_example/survey/subset_exposures_dark.fits \
-    --output_dir $SCRATCH/quicksurvey_example/zcat/dark 
+    --output_dir $SCRATCH/quicksurvey_example/zcat/dark \
     -f $(which fiberassign) \
     -t $SCRATCH/quicksurvey_example/fiberassign/template_fiberassign_dark.txt \
     -D $SCRATCH/quicksurvey_example/fiberassign/subset_dark_fiberassign_dates.txt
