@@ -10,7 +10,7 @@ source /project/projectdirs//desi/software/desi_environment.sh 17.12
 
 # Checkout the quicksurvey_example to scratch space
 cd $SCRATCH
-git clone git@github.com:desihub/quicksurvey_example.git
+git clone https://github.com/desihub/quicksurvey_example
 
 # Generate dark time mock target catalogs
 select_mock_targets --no-spectra --nside 16 --seed 10 \
