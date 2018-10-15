@@ -5,8 +5,8 @@ This will run separately a `dark` and a `bright` survey.
 More details can be found in `readme.ipynb`.
 
 ```bash
-# If you don't do this in your .bash* files:
-source /project/projectdirs//desi/software/desi_environment.sh 17.12
+# Source the latest desihub packages
+source /project/projectdirs//desi/software/desi_environment.sh master
 
 # Checkout the quicksurvey_example to scratch space
 cd $SCRATCH
