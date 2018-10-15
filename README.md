@@ -8,6 +8,13 @@ More details can be found in `readme.ipynb`.
 # Source the latest desihub packages
 source /project/projectdirs//desi/software/desi_environment.sh master
 
+# In this example these are the versions installed
+python -c 'import desitarget; print(desitarget.__version__)'
+#>>> 0.24.0.dev2465
+
+python -c 'import desisim; print(desisim.__version__)'
+#>>> 0.30.0.dev1646
+
 # Checkout the quicksurvey_example to scratch space
 cd $SCRATCH
 git clone https://github.com/desihub/quicksurvey_example
