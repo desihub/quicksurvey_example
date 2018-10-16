@@ -1,11 +1,5 @@
 # mock target configuration file
 targets:
-    BGS: {
-        target_type: BGS,
-        mockfile: '{DESI_ROOT}/mocks/bgs/MXXL/desi_footprint/v0.0.4/BGS.hdf5',
-        format: durham_mxxl_hdf5,
-        magcut: 20.5,
-    }
     ELG: {
         target_type: ELG,
         mockfile: '{DESI_ROOT}/mocks/DarkSky/v1.0.1/elg_0_inpt.fits',
