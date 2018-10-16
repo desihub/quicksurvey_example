@@ -38,11 +38,14 @@ select_mock_targets --no-spectra --nproc 4 --nside 16 --seed 10   \
 4. Combine individual healpix files into the full catalog
 ```bash
 join_mock_targets --mockdir $SCRATCH/quicksurvey_example/targets/no_spectra/dark
+join_mock_targets --mockdir $SCRATCH/quicksurvey_example/targets/no_spectra/bright
 ```
 
 5. Rename the standard stars
 ```bash
 mv $SCRATCH/quicksurvey_example/targets/no_spectra/dark/standards-dark.fits $SCRATCH/quicksurvey_example/targets/no_spectra/dark/std.fits
+mv $SCRATCH/quicksurvey_example/targets/no_spectra/bright/standards-bright.fits $SCRATCH/quicksurvey_example/targets/no_spectra/bright/std.fits
+
 ```
 
 6. Run quicksurvey
