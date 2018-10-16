@@ -22,7 +22,7 @@ cd quicksurvey_example
 
 3. Generate mock target catalogs 
 
-3a. Dark 
+Dark 
 ```bash
 select_mock_targets --no-spectra --nproc 4 --nside 16 --seed 10 \
     -c $SCRATCH/quicksurvey_example/targets/no_spectra/dark/input.yaml \
@@ -30,7 +30,7 @@ select_mock_targets --no-spectra --nproc 4 --nside 16 --seed 10 \
     --tiles $SCRATCH/quicksurvey_example/survey/subset_tiles_dark.fits
 ```
 
-3b. Bright
+Bright
 ```bash
 select_mock_targets --no-spectra --nproc 4 --nside 16 --seed 10   \
 	-c $SCRATCH/quicksurvey_example/targets/no_spectra/bright/input.yaml   \
