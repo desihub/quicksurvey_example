@@ -51,8 +51,8 @@ mv $SCRATCH/quicksurvey_example/targets/no_spectra/bright/standards-bright.fits 
 6. Run quicksurvey
 ```bash
 quicksurvey -T $SCRATCH/quicksurvey_example/targets/no_spectra/dark    \
-	    -E $SCRATCH/quicksurvey_example/survey/subset_exposures_dark.fits  \   
-	    --output_dir $SCRATCH/quicksurvey_example/zcat/dark  \   
-	    -f $(which fiberassign)    
+	    -E $SCRATCH/quicksurvey_example/survey/subset_exposures_dark.fits  \
+	    --output_dir $SCRATCH/quicksurvey_example/zcat/dark  \
+	    -f $(which fiberassign)    \
 	    -D $SCRATCH/quicksurvey_example/fiberassign/subset_dark_fiberassign_dates.txt
 ```
