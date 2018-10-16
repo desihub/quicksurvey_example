@@ -14,6 +14,7 @@ source /project/projectdirs//desi/software/desi_environment.sh master
 ```bash
 cd $SCRATCH
 git clone https://github.com/desihub/quicksurvey_example
+cd quicksurvey_example
 ```
 
 3. Generate mock target catalogs
