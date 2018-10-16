@@ -18,7 +18,7 @@ git clone https://github.com/desihub/quicksurvey_example
 
 3. Generate mock target catalogs
 ```bash
-select_mock_targets --no-spectra --nside 16 --seed 10 \
+select_mock_targets --no-spectra --nproc 4 --nside 16 --seed 10 \
     -c $SCRATCH/quicksurvey_example/targets/no_spectra/dark/input.yaml \
     --output_dir $SCRATCH/quicksurvey_example/targets/no_spectra/dark \
     --tiles $SCRATCH/quicksurvey_example/survey/subset_tiles_dark.fits
