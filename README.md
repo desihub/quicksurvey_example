@@ -8,25 +8,28 @@ More details can be found in `readme.ipynb`.
 # Source the latest desihub packages
 source /project/projectdirs//desi/software/desi_environment.sh master
 
-# In this example these are the versions installed
-python -c 'import desitarget; print(desitarget.__version__)'
-#>>> 0.24.0.dev2465
-
-python -c 'import desisim; print(desisim.__version__)'
-#>>> 0.30.0.dev1646
-
 # Checkout the quicksurvey_example to scratch space
 cd $SCRATCH
 git clone https://github.com/desihub/quicksurvey_example
 
 # Generate dark time mock target catalogs
 select_mock_targets --no-spectra --nside 16 --seed 10 \
-    -c $SCRATCH/quicksurvey_example/targets/no_spectra/dark/select-mock-targets-dark.yaml \
+    -c $SCRATCH/quicksurvey_example/targets/no_spectra/dark/input.yaml \
     --output_dir $SCRATCH/quicksurvey_example/targets/no_spectra/dark \
     --tiles $SCRATCH/quicksurvey_example/survey/subset_tiles_dark.fits
 
 # Combine individual healpix files into the full catalog
 join_mock_targets --mockdir $SCRATCH/quicksurvey_example/targets/no_spectra/dark
+
+# Rename the standard stars
+mv $SCRATCH/quicksurvey_example/targets/no_spectra/dark/standards-dark.fits $SCRATCH/quicksurvey_example/targets/no_spectra/dark/std.fits
+
+# Finally run quicksurvey
+quicksurvey -T $SCRATCH/quicksurvey_example/targets/no_spectra/dark    \
+	    -E $SCRATCH/quicksurvey_example/survey/subset_exposures_dark.fits  \   
+	    --output_dir $SCRATCH/quicksurvey_example/zcat/dark  \   
+	    -f $(which fiberassign)    
+	    -D $SCRATCH/quicksurvey_example/fiberassign/subset_dark_fiberassign_dates.txt
 
 # Now repeat for the bright time survey
 select_mock_targets --no-spectra --nside 16 --seed 10 \
