@@ -4,13 +4,17 @@ The following commands should be enough to simulate a small DESI patch of 100 sq
 This will run separately a `dark` and a `bright` survey.
 More details can be found in `readme.ipynb`.
 
-```bash
-# Source the latest desihub packages
-source /project/projectdirs//desi/software/desi_environment.sh master
 
-# Checkout the quicksurvey_example to scratch space
+1. Source the latest desihub packages
+```bash
+source /project/projectdirs//desi/software/desi_environment.sh master
+```
+
+2. Checkout the quicksurvey_example (this repository) to scratch space
+```bash
 cd $SCRATCH
 git clone https://github.com/desihub/quicksurvey_example
+```
 
 # Generate dark time mock target catalogs
 select_mock_targets --no-spectra --nside 16 --seed 10 \
