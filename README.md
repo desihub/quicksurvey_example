@@ -2,6 +2,9 @@
 
 The following commands should be enough to simulate a small DESI patch of 100 sq. deg on cori.
 This will run separately a `dark` and a `bright` survey.
+
+A notebook showing simple plots for the spatial distribution in the results `plot_quicksurvey_results.ipynb`.
+
 More details can be found in `readme.ipynb`.
 
 
