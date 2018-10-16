@@ -17,12 +17,22 @@ git clone https://github.com/desihub/quicksurvey_example
 cd quicksurvey_example
 ```
 
-3. Generate mock target catalogs
+3. Generate mock target catalogs 
+
+3a. Dark 
 ```bash
 select_mock_targets --no-spectra --nproc 4 --nside 16 --seed 10 \
     -c $SCRATCH/quicksurvey_example/targets/no_spectra/dark/input.yaml \
     --output_dir $SCRATCH/quicksurvey_example/targets/no_spectra/dark \
     --tiles $SCRATCH/quicksurvey_example/survey/subset_tiles_dark.fits
+```
+
+3b. Bright
+```bash
+select_mock_targets --no-spectra --nproc 4 --nside 16 --seed 10   \
+	-c $SCRATCH/quicksurvey_example/targets/no_spectra/bright/input.yaml   \
+	--output_dir $SCRATCH/quicksurvey_example/targets/no_spectra/bright  \
+	--tiles $SCRATCH/quicksurvey_example/survey/subset_tiles_bright.fits
 ```
 
 4. Combine individual healpix files into the full catalog
