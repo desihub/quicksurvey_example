@@ -16,46 +16,29 @@ cd $SCRATCH
 git clone https://github.com/desihub/quicksurvey_example
 ```
 
-# Generate dark time mock target catalogs
+3. Generate mock target catalogs
+```bash
 select_mock_targets --no-spectra --nside 16 --seed 10 \
     -c $SCRATCH/quicksurvey_example/targets/no_spectra/dark/input.yaml \
     --output_dir $SCRATCH/quicksurvey_example/targets/no_spectra/dark \
     --tiles $SCRATCH/quicksurvey_example/survey/subset_tiles_dark.fits
+```
 
-# Combine individual healpix files into the full catalog
+4. Combine individual healpix files into the full catalog
+```bash
 join_mock_targets --mockdir $SCRATCH/quicksurvey_example/targets/no_spectra/dark
+```
 
-# Rename the standard stars
+5. Rename the standard stars
+```bash
 mv $SCRATCH/quicksurvey_example/targets/no_spectra/dark/standards-dark.fits $SCRATCH/quicksurvey_example/targets/no_spectra/dark/std.fits
+```
 
-# Finally run quicksurvey
+6. Run quicksurvey
+```bash
 quicksurvey -T $SCRATCH/quicksurvey_example/targets/no_spectra/dark    \
 	    -E $SCRATCH/quicksurvey_example/survey/subset_exposures_dark.fits  \   
 	    --output_dir $SCRATCH/quicksurvey_example/zcat/dark  \   
 	    -f $(which fiberassign)    
 	    -D $SCRATCH/quicksurvey_example/fiberassign/subset_dark_fiberassign_dates.txt
-
-# Now repeat for the bright time survey
-select_mock_targets --no-spectra --nside 16 --seed 10 \
-    -c $SCRATCH/quicksurvey_example/targets/no_spectra/bright/select-mock-targets-bright.yaml \
-    --output_dir $SCRATCH/quicksurvey_example/targets/no_spectra/bright \
-    --tiles $SCRATCH/quicksurvey_example/survey/subset_tiles_bright.fits
-
-join_mock_targets --mockdir $SCRATCH/quicksurvey_example/targets/no_spectra/bright
-
-# Run quicksurvey for the dark time; this includes surveysims, fiberassign, and quickcat
-quicksurvey -T $SCRATCH/quicksurvey_example/targets/no_spectra/dark \
-    -E $SCRATCH/quicksurvey_example/survey/subset_exposures_dark.fits \
-    --output_dir $SCRATCH/quicksurvey_example/zcat/dark \
-    -f $(which fiberassign) \
-    -t $SCRATCH/quicksurvey_example/fiberassign/template_fiberassign_dark.txt \
-    -D $SCRATCH/quicksurvey_example/fiberassign/subset_dark_fiberassign_dates.txt
-
-# Run quicksurvey for the bright time
-quicksurvey -T $SCRATCH/quicksurvey_example/targets/no_spectra/bright \
-    -E $SCRATCH/quicksurvey_example/survey/subset_exposures_bright.fits \
-    --output_dir $SCRATCH/quicksurvey_example/zcat/bright \
-    -f $(which fiberassign) \
-    -t $SCRATCH/quicksurvey_example/fiberassign/template_fiberassign_bright.txt \
-    -D $SCRATCH/quicksurvey_example/fiberassign/subset_bright_fiberassign_dates.txt
 ```
