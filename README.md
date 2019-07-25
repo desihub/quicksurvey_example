@@ -46,8 +46,8 @@ join_mock_targets --mockdir $SCRATCH/quicksurvey_example/targets/no_spectra/brig
 
 5. Rename the standard stars
 ```bash
-mv $SCRATCH/quicksurvey_example/targets/no_spectra/dark/standards-dark.fits $SCRATCH/quicksurvey_example/targets/no_spectra/dark/std.fits
-mv $SCRATCH/quicksurvey_example/targets/no_spectra/bright/standards-bright.fits $SCRATCH/quicksurvey_example/targets/no_spectra/bright/std.fits
+mv $SCRATCH/quicksurvey_example/targets/no_spectra/dark/standards-dark.fits $SCRATCH/quicksurvey_example/targets/no_spectra/dark/standards.fits
+mv $SCRATCH/quicksurvey_example/targets/no_spectra/bright/standards-bright.fits $SCRATCH/quicksurvey_example/targets/no_spectra/bright/standards.fits
 
 ```
 
